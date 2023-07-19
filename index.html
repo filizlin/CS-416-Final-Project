@@ -48,16 +48,14 @@
             "Two or More Races",
             "Unknown/Non-Respondent",
           ])
-          .range(d3.schemeTableau10);
+          .range(d3.schemeCategory10);
 
         // create the container SVG element
         d3.select("svg")
           .attr("width", width + 100)
-          .attr("height", height + 100);
+          .attr("height", height + 100)
 
-        // add circle elements for each dot
-        const enthic_groups = d3
-          .select("svg")
+          // add circle for each point
           .append("g")
           .attr("transform", `translate(${5 * margin.left},${margin.top})`)
           .selectAll("circle")
@@ -65,12 +63,15 @@
           .enter()
           .append("circle")
           .attr("cx", function (d) {
-            return x(d.academicYear);
+            return x(+d.academicYear);
           })
           .attr("cy", function (d) {
-            return y(d.perc);
+            return y(+d.perc * 100);
           })
-          .attr("r", 1.5);
+          .attr("r", 1.5)
+          .attr("fill", function (d) {
+            return color(d.subgroup);
+          });
 
         // set up y-axis
         d3.select("svg")
@@ -89,7 +90,9 @@
           .attr("font-size", "16px")
           .attr("x", width * 0.5)
           .attr("y", +50)
-          .text("Percent Completion of Transfer-level Math and English Course");
+          .text(
+            "Percent Completion of Transfer-level Math and English Course during First Year"
+          );
 
         //set up x-axis
         d3.select("svg")

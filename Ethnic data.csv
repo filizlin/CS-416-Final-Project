@@ -1,241 +1,81 @@
-﻿academicYear,subgroup,value,denom,perc
-2015,Overall,32120,481737,0.06668
-2015,American Indian/Alaska Native,51,1942,0.02626
-2015,Asian,8228,51634,0.15935
-2015,Black or African American,749,34664,0.02161
-2015,Filipino,1418,14103,0.10055
-2015,Hispanic,9227,201170,0.04587
-2015,Pacific Islander or Hawaiian Native,97,2292,0.04232
-2015,White,9259,137047,0.06756
-2015,Two or More Races,1547,21450,0.07212
-2015,Unknown/Non-Respondent,1451,15594,0.09305
-2015,Overall,52045,481737,0.10804
-2015,American Indian/Alaska Native,101,1942,0.05201
-2015,Asian,13141,51634,0.2545
-2015,Black or African American,1407,34664,0.04059
-2015,Filipino,2285,14103,0.16202
-2015,Hispanic,15149,201170,0.0753
-2015,Pacific Islander or Hawaiian Native,165,2292,0.07199
-2015,White,14889,137047,0.10864
-2015,Two or More Races,2526,21450,0.11776
-2015,Unknown/Non-Respondent,2195,15594,0.14076
-2015,Overall,97555,481737,0.20251
-2015,American Indian/Alaska Native,302,1942,0.15551
-2015,Asian,13125,51634,0.25419
-2015,Black or African American,3779,34664,0.10902
-2015,Filipino,3793,14103,0.26895
-2015,Hispanic,38147,201170,0.18963
-2015,Pacific Islander or Hawaiian Native,359,2292,0.15663
-2015,White,30190,137047,0.22029
-2015,Two or More Races,4921,21450,0.22942
-2015,Unknown/Non-Respondent,2644,15594,0.16955
-2016,Overall,36103,488176,0.07395
-2016,American Indian/Alaska Native,71,2241,0.03168
-2016,Asian,9116,55126,0.16537
-2016,Black or African American,848,32358,0.02621
-2016,Filipino,1595,14331,0.1113
-2016,Hispanic,10812,207150,0.05219
-2016,Pacific Islander or Hawaiian Native,80,2315,0.03456
-2016,White,10490,136326,0.07695
-2016,Two or More Races,1572,20199,0.07783
-2016,Unknown/Non-Respondent,1435,16063,0.08934
-2016,Overall,57291,488176,0.11736
-2016,American Indian/Alaska Native,110,2241,0.04909
-2016,Asian,14263,55126,0.25873
-2016,Black or African American,1579,32358,0.0488
-2016,Filipino,2478,14331,0.17291
-2016,Hispanic,17249,207150,0.08327
-2016,Pacific Islander or Hawaiian Native,143,2315,0.06177
-2016,White,16570,136326,0.12155
-2016,Two or More Races,2520,20199,0.12476
-2016,Unknown/Non-Respondent,2191,16063,0.1364
-2016,Overall,106563,488176,0.21829
-2016,American Indian/Alaska Native,351,2241,0.15663
-2016,Asian,14786,55126,0.26822
-2016,Black or African American,3920,32358,0.12114
-2016,Filipino,3934,14331,0.27451
-2016,Hispanic,43503,207150,0.21001
-2016,Pacific Islander or Hawaiian Native,337,2315,0.14557
-2016,White,32056,136326,0.23514
-2016,Two or More Races,4730,20199,0.23417
-2016,Unknown/Non-Respondent,2688,16063,0.16734
-2017,Overall,38752,475092,0.08157
-2017,American Indian/Alaska Native,87,2163,0.04022
-2017,Asian,9026,52174,0.173
-2017,Black or African American,913,30699,0.02974
-2017,Filipino,1810,14402,0.12568
-2017,Hispanic,12334,208317,0.05921
-2017,Pacific Islander or Hawaiian Native,106,2131,0.04974
-2017,White,11159,129361,0.08626
-2017,Two or More Races,1819,19698,0.09234
-2017,Unknown/Non-Respondent,1358,14262,0.09522
-2017,Overall,59013,475092,0.12421
-2017,American Indian/Alaska Native,142,2163,0.06565
-2017,Asian,13786,52174,0.26423
-2017,Black or African American,1655,30699,0.05391
-2017,Filipino,2662,14402,0.18484
-2017,Hispanic,18781,208317,0.09016
-2017,Pacific Islander or Hawaiian Native,174,2131,0.08165
-2017,White,16831,129361,0.13011
-2017,Two or More Races,2776,19698,0.14093
-2017,Unknown/Non-Respondent,1951,14262,0.1368
-2017,Overall,114704,475092,0.24144
-2017,American Indian/Alaska Native,371,2163,0.17152
-2017,Asian,14706,52174,0.28186
-2017,Black or African American,4472,30699,0.14567
-2017,Filipino,4521,14402,0.31391
-2017,Hispanic,49142,208317,0.2359
-2017,Pacific Islander or Hawaiian Native,406,2131,0.19052
-2017,White,32752,129361,0.25318
-2017,Two or More Races,5304,19698,0.26927
-2017,Unknown/Non-Respondent,2678,14262,0.18777
-2018,Overall,44415,483576,0.09185
-2018,American Indian/Alaska Native,85,2158,0.03939
-2018,Asian,9822,52930,0.18557
-2018,Black or African American,1026,30474,0.03367
-2018,Filipino,1961,13276,0.14771
-2018,Hispanic,15241,215120,0.07085
-2018,Pacific Islander or Hawaiian Native,129,2204,0.05853
-2018,White,12358,128223,0.09638
-2018,Two or More Races,2118,20442,0.10361
-2018,Unknown/Non-Respondent,1545,17017,0.09079
-2018,Overall,64737,483576,0.13387
-2018,American Indian/Alaska Native,132,2158,0.06117
-2018,Asian,14324,52930,0.27062
-2018,Black or African American,1796,30474,0.05894
-2018,Filipino,2752,13276,0.20729
-2018,Hispanic,22062,215120,0.10256
-2018,Pacific Islander or Hawaiian Native,190,2204,0.08621
-2018,White,18018,128223,0.14052
-2018,Two or More Races,3079,20442,0.15062
-2018,Unknown/Non-Respondent,2177,17017,0.12793
-2018,Overall,125357,483576,0.25923
-2018,American Indian/Alaska Native,398,2158,0.18443
-2018,Asian,15841,52930,0.29928
-2018,Black or African American,4879,30474,0.1601
-2018,Filipino,4468,13276,0.33655
-2018,Hispanic,55479,215120,0.2579
-2018,Pacific Islander or Hawaiian Native,442,2204,0.20054
-2018,White,34171,128223,0.2665
-2018,Two or More Races,5888,20442,0.28803
-2018,Unknown/Non-Respondent,3442,17017,0.20227
-2019,Overall,53493,460308,0.11621
-2019,American Indian/Alaska Native,90,1652,0.05448
-2019,Asian,10676,50114,0.21303
-2019,Black or African American,1400,28016,0.04997
-2019,Filipino,2586,14111,0.18326
-2019,Hispanic,20055,207320,0.09673
-2019,Pacific Islander or Hawaiian Native,145,2004,0.07236
-2019,White,14027,118541,0.11833
-2019,Two or More Races,2598,19992,0.12995
-2019,Unknown/Non-Respondent,1767,16737,0.10557
-2019,Overall,73912,460308,0.16057
-2019,American Indian/Alaska Native,127,1652,0.07688
-2019,Asian,14722,50114,0.29377
-2019,Black or African American,2220,28016,0.07924
-2019,Filipino,3453,14111,0.2447
-2019,Hispanic,27241,207320,0.1314
-2019,Pacific Islander or Hawaiian Native,207,2004,0.10329
-2019,White,19622,118541,0.16553
-2019,Two or More Races,3663,19992,0.18322
-2019,Unknown/Non-Respondent,2410,16737,0.14399
-2019,Overall,141477,460308,0.30735
-2019,American Indian/Alaska Native,350,1652,0.21186
-2019,Asian,17242,50114,0.34406
-2019,Black or African American,5766,28016,0.20581
-2019,Filipino,5425,14111,0.38445
-2019,Hispanic,65723,207320,0.31701
-2019,Pacific Islander or Hawaiian Native,485,2004,0.24202
-2019,White,35786,118541,0.30189
-2019,Two or More Races,6557,19992,0.32798
-2019,Unknown/Non-Respondent,3708,16737,0.22155
-2020,Overall,72384,451576,0.16029
-2020,American Indian/Alaska Native,156,1782,0.08754
-2020,Asian,11647,47934,0.24298
-2020,Black or African American,2149,26177,0.08209
-2020,Filipino,3494,14071,0.24831
-2020,Hispanic,30160,206423,0.14611
-2020,Pacific Islander or Hawaiian Native,241,2146,0.1123
-2020,White,17233,104211,0.16537
-2020,Two or More Races,3169,18353,0.17267
-2020,Unknown/Non-Respondent,3894,28228,0.13795
-2020,Overall,98026,451576,0.21708
-2020,American Indian/Alaska Native,218,1782,0.12233
-2020,Asian,16096,47934,0.3358
-2020,Black or African American,3211,26177,0.12266
-2020,Filipino,4567,14071,0.32457
-2020,Hispanic,39973,206423,0.19365
-2020,Pacific Islander or Hawaiian Native,363,2146,0.16915
-2020,White,23421,104211,0.22475
-2020,Two or More Races,4403,18353,0.23991
-2020,Unknown/Non-Respondent,5351,28228,0.18956
-2020,Overall,156857,451576,0.34735
-2020,American Indian/Alaska Native,494,1782,0.27722
-2020,Asian,17934,47934,0.37414
-2020,Black or African American,6326,26177,0.24166
-2020,Filipino,6197,14071,0.44041
-2020,Hispanic,74715,206423,0.36195
-2020,Pacific Islander or Hawaiian Native,617,2146,0.28751
-2020,White,35258,104211,0.33833
-2020,Two or More Races,6690,18353,0.36452
-2020,Unknown/Non-Respondent,7989,28228,0.28302
-2021,Overall,65776,377130,0.17441
-2021,American Indian/Alaska Native,121,1213,0.09975
-2021,Asian,9299,39035,0.23822
-2021,Black or African American,1835,20069,0.09143
-2021,Filipino,3291,12460,0.26413
-2021,Hispanic,27009,167179,0.16156
-2021,Pacific Islander or Hawaiian Native,233,1692,0.13771
-2021,White,17638,101326,0.17407
-2021,Two or More Races,3379,17961,0.18813
-2021,Unknown/Non-Respondent,2815,15156,0.18574
-2021,Overall,90849,377130,0.2409
-2021,American Indian/Alaska Native,183,1213,0.15087
-2021,Asian,14131,39035,0.36201
-2021,Black or African American,2773,20069,0.13817
-2021,Filipino,4321,12460,0.34679
-2021,Hispanic,35608,167179,0.21299
-2021,Pacific Islander or Hawaiian Native,323,1692,0.1909
-2021,White,24663,101326,0.2434
-2021,Two or More Races,4780,17961,0.26613
-2021,Unknown/Non-Respondent,3815,15156,0.25172
-2021,Overall,131887,377130,0.34971
-2021,American Indian/Alaska Native,281,1213,0.23166
-2021,Asian,14317,39035,0.36677
-2021,Black or African American,5022,20069,0.25024
-2021,Filipino,5491,12460,0.44069
-2021,Hispanic,60358,167179,0.36104
-2021,Pacific Islander or Hawaiian Native,546,1692,0.3227
-2021,White,33985,101326,0.3354
-2021,Two or More Races,6545,17961,0.3644
-2021,Unknown/Non-Respondent,5024,15156,0.33149
-2022,Overall,57308,363283,0.15775
-2022,American Indian/Alaska Native,103,1185,0.08692
-2022,Asian,8759,36123,0.24248
-2022,Black or African American,1562,19215,0.08129
-2022,Filipino,2902,11113,0.26114
-2022,Hispanic,23986,161383,0.14863
-2022,Pacific Islander or Hawaiian Native,208,1550,0.13419
-2022,White,14698,98117,0.1498
-2022,Two or More Races,3280,16690,0.19652
-2022,Unknown/Non-Respondent,1635,16758,0.09757
-2022,Overall,77883,363283,0.21439
-2022,American Indian/Alaska Native,142,1185,0.11983
-2022,Asian,12754,36123,0.35307
-2022,Black or African American,2363,19215,0.12298
-2022,Filipino,3773,11113,0.33951
-2022,Hispanic,31570,161383,0.19562
-2022,Pacific Islander or Hawaiian Native,276,1550,0.17806
-2022,White,19816,98117,0.20196
-2022,Two or More Races,4409,16690,0.26417
-2022,Unknown/Non-Respondent,2516,16758,0.15014
-2022,Overall,117624,363283,0.32378
-2022,American Indian/Alaska Native,272,1185,0.22954
-2022,Asian,13323,36123,0.36882
-2022,Black or African American,4411,19215,0.22956
-2022,Filipino,4862,11113,0.43751
-2022,Hispanic,55446,161383,0.34357
-2022,Pacific Islander or Hawaiian Native,453,1550,0.29226
-2022,White,29103,98117,0.29662
-2022,Two or More Races,6236,16690,0.37364
-2022,Unknown/Non-Respondent,3186,16758,0.19012
+﻿academicYear,disagg,subgroup,value,denom,perc
+2015,Overall,Overall,52045,481737,0.10804
+2015,Ethnicity,American Indian/Alaska Native,101,1942,0.05201
+2015,Ethnicity,Asian,13141,51634,0.2545
+2015,Ethnicity,Black or African American,1407,34664,0.04059
+2015,Ethnicity,Filipino,2285,14103,0.16202
+2015,Ethnicity,Hispanic,15149,201170,0.0753
+2015,Ethnicity,Pacific Islander or Hawaiian Native,165,2292,0.07199
+2015,Ethnicity,White,14889,137047,0.10864
+2015,Ethnicity,Two or More Races,2526,21450,0.11776
+2015,Ethnicity,Unknown/Non-Respondent,2195,15594,0.14076
+2016,Overall,Overall,57291,488176,0.11736
+2016,Ethnicity,American Indian/Alaska Native,110,2241,0.04909
+2016,Ethnicity,Asian,14263,55126,0.25873
+2016,Ethnicity,Black or African American,1579,32358,0.0488
+2016,Ethnicity,Filipino,2478,14331,0.17291
+2016,Ethnicity,Hispanic,17249,207150,0.08327
+2016,Ethnicity,Pacific Islander or Hawaiian Native,143,2315,0.06177
+2016,Ethnicity,White,16570,136326,0.12155
+2016,Ethnicity,Two or More Races,2520,20199,0.12476
+2016,Ethnicity,Unknown/Non-Respondent,2191,16063,0.1364
+2017,Overall,Overall,59013,475092,0.12421
+2017,Ethnicity,American Indian/Alaska Native,142,2163,0.06565
+2017,Ethnicity,Asian,13786,52174,0.26423
+2017,Ethnicity,Black or African American,1655,30699,0.05391
+2017,Ethnicity,Filipino,2662,14402,0.18484
+2017,Ethnicity,Hispanic,18781,208317,0.09016
+2017,Ethnicity,Pacific Islander or Hawaiian Native,174,2131,0.08165
+2017,Ethnicity,White,16831,129361,0.13011
+2017,Ethnicity,Two or More Races,2776,19698,0.14093
+2017,Ethnicity,Unknown/Non-Respondent,1951,14262,0.1368
+2018,Overall,Overall,64737,483576,0.13387
+2018,Ethnicity,American Indian/Alaska Native,132,2158,0.06117
+2018,Ethnicity,Asian,14324,52930,0.27062
+2018,Ethnicity,Black or African American,1796,30474,0.05894
+2018,Ethnicity,Filipino,2752,13276,0.20729
+2018,Ethnicity,Hispanic,22062,215120,0.10256
+2018,Ethnicity,Pacific Islander or Hawaiian Native,190,2204,0.08621
+2018,Ethnicity,White,18018,128223,0.14052
+2018,Ethnicity,Two or More Races,3079,20442,0.15062
+2018,Ethnicity,Unknown/Non-Respondent,2177,17017,0.12793
+2019,Overall,Overall,73912,460308,0.16057
+2019,Ethnicity,American Indian/Alaska Native,127,1652,0.07688
+2019,Ethnicity,Asian,14722,50114,0.29377
+2019,Ethnicity,Black or African American,2220,28016,0.07924
+2019,Ethnicity,Filipino,3453,14111,0.2447
+2019,Ethnicity,Hispanic,27241,207320,0.1314
+2019,Ethnicity,Pacific Islander or Hawaiian Native,207,2004,0.10329
+2019,Ethnicity,White,19622,118541,0.16553
+2019,Ethnicity,Two or More Races,3663,19992,0.18322
+2019,Ethnicity,Unknown/Non-Respondent,2410,16737,0.14399
+2020,Overall,Overall,98026,451576,0.21708
+2020,Ethnicity,American Indian/Alaska Native,218,1782,0.12233
+2020,Ethnicity,Asian,16096,47934,0.3358
+2020,Ethnicity,Black or African American,3211,26177,0.12266
+2020,Ethnicity,Filipino,4567,14071,0.32457
+2020,Ethnicity,Hispanic,39973,206423,0.19365
+2020,Ethnicity,Pacific Islander or Hawaiian Native,363,2146,0.16915
+2020,Ethnicity,White,23421,104211,0.22475
+2020,Ethnicity,Two or More Races,4403,18353,0.23991
+2020,Ethnicity,Unknown/Non-Respondent,5351,28228,0.18956
+2021,Overall,Overall,90849,377130,0.2409
+2021,Ethnicity,American Indian/Alaska Native,183,1213,0.15087
+2021,Ethnicity,Asian,14131,39035,0.36201
+2021,Ethnicity,Black or African American,2773,20069,0.13817
+2021,Ethnicity,Filipino,4321,12460,0.34679
+2021,Ethnicity,Hispanic,35608,167179,0.21299
+2021,Ethnicity,Pacific Islander or Hawaiian Native,323,1692,0.1909
+2021,Ethnicity,White,24663,101326,0.2434
+2021,Ethnicity,Two or More Races,4780,17961,0.26613
+2021,Ethnicity,Unknown/Non-Respondent,3815,15156,0.25172
+2022,Overall,Overall,77883,363283,0.21439
+2022,Ethnicity,American Indian/Alaska Native,142,1185,0.11983
+2022,Ethnicity,Asian,12754,36123,0.35307
+2022,Ethnicity,Black or African American,2363,19215,0.12298
+2022,Ethnicity,Filipino,3773,11113,0.33951
+2022,Ethnicity,Hispanic,31570,161383,0.19562
+2022,Ethnicity,Pacific Islander or Hawaiian Native,276,1550,0.17806
+2022,Ethnicity,White,19816,98117,0.20196
+2022,Ethnicity,Two or More Races,4409,16690,0.26417
+2022,Ethnicity,Unknown/Non-Respondent,2516,16758,0.15014

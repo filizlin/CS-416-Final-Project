@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Scatter Plot with D3.js</title>
+  <title>Scatter Plot: academicYear vs perc</title>
   <!-- Include D3.js library -->
   <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 <body>
-  <div>
-    <label>Select Subgroup(s):</label>
-    <select id="subgroupSelector" multiple>
-      <option value="Subgroup 1">Subgroup 1</option>
-      <option value="Subgroup 2">Subgroup 2</option>
-      <option value="Subgroup 3">Subgroup 3</option>
-      <!-- Add more options as needed -->
-    </select>
-  </div>
   <div id="scatterPlot"></div>
+  <div>
+    <button id="prevButton">Previous</button>
+    <button id="nextButton">Next</button>
+  </div>
 
   <script>
     // Define the URL for the data
@@ -28,9 +23,6 @@
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
-    // Define the color scale for subgroups
-    const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
-
     // Append the SVG canvas to the 'scatterPlot' div
     const svg = d3.select('#scatterPlot')
       .append('svg')
@@ -41,19 +33,19 @@
     const plotArea = svg.append('g')
       .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
-    // Fetch the data from the provided URL
+    // Load the data from the provided URL
     d3.csv(dataURL).then(data => {
-      // Convert 'perc' to numbers
+      // Convert string data to numeric values
       data.forEach(d => {
-        d.perc = +d.perc;
         d.academicYear = +d.academicYear;
+        d.perc = +d.perc;
       });
 
       // Define the scales for the axes
-      const xScale = d3.scaleBand()
-        .domain(data.map(d => d.academicYear))
+      const xScale = d3.scaleLinear()
+        .domain(d3.extent(data, d => d.academicYear))
         .range([0, innerWidth])
-        .padding(0.1); // Add padding between bars
+        .nice();
 
       const yScale = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.perc)])
@@ -66,60 +58,69 @@
 
       // Append the axes to the SVG
       plotArea.append('g')
+        .attr('class', 'x-axis')
         .attr('transform', `translate(0, ${innerHeight})`)
         .call(xAxis);
 
       plotArea.append('g')
+        .attr('class', 'y-axis')
         .call(yAxis);
 
-      // Function to update the plot based on selected subgroups
-      function updatePlot(selectedSubgroups) {
-        // Filter data based on selected subgroups
-        const filteredData = data.filter(d => selectedSubgroups.includes(d.subgroup));
+      // Function to update the plot based on selected academic years
+      function updatePlot(academicYearStart, academicYearEnd) {
+        // Filter data based on selected academic years
+        const filteredData = data.filter(d => d.academicYear >= academicYearStart && d.academicYear <= academicYearEnd);
 
         // Create the dots for the scatter plot
         const dots = plotArea.selectAll('circle')
-          .data(filteredData, d => d.subgroup)
-          .join(
-            enter => enter.append('circle')
-              .attr('cx', d => xScale(d.academicYear) + xScale.bandwidth() / 2) // Place dots in the center of each band
-              .attr('cy', d => yScale(d.perc))
-              .attr('r', 5)
-              .attr('fill', d => colorScale(d.subgroup))
-              .on('mouseover', showTooltip)
-              .on('mouseout', hideTooltip),
-            update => update,
-            exit => exit.remove()
-          );
+          .data(filteredData, d => d.subgroup);
 
-        // Create the lines for connecting data points of the same subgroup
-        const line = d3.line()
-          .x(d => xScale(d.academicYear) + xScale.bandwidth() / 2)
-          .y(d => yScale(d.perc));
+        // Update existing circles
+        dots.attr('cx', d => xScale(d.academicYear))
+          .attr('cy', d => yScale(d.perc));
 
-        const lines = plotArea.selectAll('.line')
-          .data(d3.groups(filteredData, d => d.subgroup))
-          .join(
-            enter => enter.append('path')
-              .attr('class', 'line')
-              .attr('d', d => line(d[1]))
-              .attr('fill', 'none')
-              .attr('stroke', d => colorScale(d[0])),
-            update => update,
-            exit => exit.remove()
-          );
+        // Add new circles
+        dots.enter()
+          .append('circle')
+          .attr('cx', d => xScale(d.academicYear))
+          .attr('cy', d => yScale(d.perc))
+          .attr('r', 5)
+          .attr('fill', 'blue')
+          .on('mouseover', showTooltip)
+          .on('mouseout', hideTooltip);
+
+        // Remove any extra circles
+        dots.exit().remove();
       }
 
-      // Initial plot update with all subgroups shown
-      const initialSubgroups = data.map(d => d.subgroup);
-      updatePlot(initialSubgroups);
+      // Initial plot update for the first slide (2015-2017)
+      updatePlot(2015, 2017);
 
-      // Handle subgroup selection change
-      const subgroupSelector = document.getElementById('subgroupSelector');
-      subgroupSelector.addEventListener('change', () => {
-        const selectedSubgroups = Array.from(subgroupSelector.selectedOptions, option => option.value);
-        updatePlot(selectedSubgroups);
-      });
+      // Variables to keep track of the current slide and academic years
+      let currentSlide = 0;
+      const academicYearSlides = [
+        { start: 2015, end: 2017 },
+        { start: 2015, end: 2019 },
+        { start: 2015, end: 2021 }
+      ];
+
+      // Function to transition to the next slide
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % academicYearSlides.length;
+        const { start, end } = academicYearSlides[currentSlide];
+        updatePlot(start, end);
+      }
+
+      // Function to transition to the previous slide
+      function prevSlide() {
+        currentSlide = (currentSlide - 1 + academicYearSlides.length) % academicYearSlides.length;
+        const { start, end } = academicYearSlides[currentSlide];
+        updatePlot(start, end);
+      }
+
+      // Attach onclick events to the buttons
+      document.getElementById('prevButton').onclick = prevSlide;
+      document.getElementById('nextButton').onclick = nextSlide;
 
       // Tooltip
       const tooltip = d3.select('body')
@@ -134,9 +135,7 @@
 
       function showTooltip(event, d) {
         const tooltipContent = `
-          Value: ${d.value}<br>
-          Denom: ${d.denom}<br>
-          Subgroup: ${d.subgroup}<br>
+          Academic Year: ${d.academicYear}<br>
           Perc: ${d.perc}
         `;
 
@@ -150,28 +149,6 @@
         tooltip.style('opacity', 0);
       }
 
-      // Legend for the color scale
-      const legend = svg.append('g')
-        .attr('transform', `translate(${width - margin.right - 100}, ${margin.top})`);
-
-      const legendColor = legend.selectAll('circle')
-        .data(colorScale.domain())
-        .enter()
-        .append('circle')
-        .attr('cx', 0)
-        .attr('cy', (d, i) => i * 20)
-        .attr('r', 5)
-        .attr('fill', d => colorScale(d));
-
-      const legendLabel = legend.selectAll('text')
-        .data(colorScale.domain())
-        .enter()
-        .append('text')
-        .attr('x', 12)
-        .attr('y', (d, i) => i * 20 + 5)
-        .text(d => d);
-    }).catch(error => {
-      console.error('Error fetching data:', error);
     });
   </script>
 </body>

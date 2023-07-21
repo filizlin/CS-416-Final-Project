@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Scatter Plot: academicYear vs perc</title>
     <!-- Include D3.js and d3-annotation libraries -->
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
   </head>
   <body>
-    <button id="prevButton">Previous</button>
-    <button id="nextButton">Next</button>
+    <h1>The effectivenes of AB 705 on closing the equity gap</h1>
+    <h2>CS 416 SU23 Final Project by Yuting Lin</h2>
+    <h3>What is AB 705?</h3>
+    <p>
+      AB 705 is legislation intended to support assessment and placement
+      strategies proven to increase student completion rates and close the
+      achievement gap by requiring colleges to consider a student's high school
+      coursework and GPA as primary determining factors for placement. A broad
+      group of stakeholders are working to make high school data the primary
+      predictor of readiness for college-level coursework for all students. AB
+      705 is a bill signed by the Governor on October 13, 2017 that took effect
+      on January 1, 2018. The bill requires that a community college district or
+      college maximize the probability that a student will enter and complete
+      transfer-level coursework in English and math within a one year timeframe
+      and use, in the placement of students into English and math courses, one
+      or more of the following: high school coursework, high school grades, and
+      high school grade point average. The bill also authorizes the Board of
+      Governors to establish regulations governing the use of measures,
+      instruments and placement models to ensure that these measures,
+      instruments and placement models achieve the goal of maximizing the
+      probability that a student will enter and complete transfer-level
+      coursework in English and math.
+    </p>
+    <p>
+      Source: California Community College Chancellor's Office (and its data
+      mart)
+    </p>
+    <h3>Data Slide Show</h3>
+    <p>
+      In the below slideshow, the percent of student who succesfully completed
+      transfer-level math courses during their first year in community college
+      is being plotted against the academic year.
+    </p>
+    <button
+      style="
+        background: lightgrey;
+        color: black;
+        padding: 20px;
+        width: 100px;
+        font-size: 16px;
+      "
+      id="prevButton"
+    >
+      Previous
+    </button>
+    <button
+      style="
+        background: lightgrey;
+        color: black;
+        padding: 20px;
+        width: 100px;
+        font-size: 16px;
+      "
+      id="nextButton"
+    >
+      Next
+    </button>
     <div id="scatterPlot"></div>
     <div id="legend"></div>
 
@@ -17,37 +71,37 @@
       const dataURL =
         "https://raw.githubusercontent.com/filizlin/CS-416-Final-Project/main/Ethnic%20data.csv";
 
-      // Define the size of the SVG canvas
+      // define size
       const width = 800;
       const height = 600;
-      const margin = { top: 50, right: 50, bottom: 50, left: 50 };
+      const margin = { top: 50, right: 50, bottom: 100, left: 100 };
       const innerWidth = width - margin.left - margin.right;
       const innerHeight = height - margin.top - margin.bottom;
 
-      // Append the SVG canvas to the 'scatterPlot' div
+      // add svg canvas
       const svg = d3
         .select("#scatterPlot")
         .append("svg")
         .attr("width", width)
         .attr("height", height);
 
-      // Create a group for the plot area
+      // add plot in svg
       const plotArea = svg
         .append("g")
         .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-      // Create a group for the legend
+      // legend area right below svg
       const legendArea = d3.select("#legend");
 
-      // Load the data from the provided URL
+      // load data
       d3.csv(dataURL).then((data) => {
-        // Convert string data to numeric values
+        // parse data to int
         data.forEach((d) => {
           d.academicYear = +d.academicYear;
-          d.perc = +d.perc;
+          d.perc = +d.perc * 100;
         });
 
-        // Define the scales for the axes
+        // scaling
         const xScale = d3
           .scaleBand()
           .domain(data.map((d) => d.academicYear))
@@ -60,42 +114,37 @@
           .range([innerHeight, 0])
           .nice();
 
-        // Create the axes
-        const xAxis = d3.axisBottom(xScale);
-        const yAxis = d3.axisLeft(yScale);
+        const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
-        // Append the axes to the SVG
+        // x axis
+        const xAxis = d3.axisBottom(xScale);
         plotArea
           .append("g")
           .attr("class", "x-axis")
           .attr("transform", `translate(0, ${innerHeight})`)
-          .call(xAxis);
+          .call(xAxis)
+          .append("text")
+          .attr("text-anchor", "end")
+          .attr("fill", "black")
+          .attr("font-size", "16px")
+          .attr("x", width * 0.5)
+          .attr("y", 60)
+          .text("Academic Year");
 
-        plotArea.append("g").attr("class", "y-axis").call(yAxis);
-
-        // Create the lines for connecting data points of the same subgroup
-        const line = d3
-          .line()
-          .x((d) => xScale(d.academicYear) + xScale.bandwidth() / 2)
-          .y((d) => yScale(d.perc));
-
-        const groupedData = d3.group(data, (d) => d.subgroup);
-
-        // Color scale for subgroups
-        const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
-
-        // Create the lines for each subgroup
+        // y axis
+        const yAxis = d3.axisLeft(yScale);
         plotArea
-          .selectAll(".line")
-          .data(groupedData)
-          .enter()
-          .append("path")
-          .attr("class", "line")
-          .attr("d", (d) => line(d[1]))
-          .attr("fill", "none")
-          .attr("stroke", (d) => colorScale(d[0]))
-          .attr("stroke-width", (d) => (d[0] === "Overall" ? 8 : 1))
-          .style("opacity", 0);
+          .append("g")
+          .attr("class", "y-axis")
+          .call(yAxis)
+          .append("text")
+          .attr("transform", `rotate(-90)`)
+          .attr("text-anchor", "end")
+          .attr("fill", "black")
+          .attr("font-size", "16px")
+          .attr("x", -150)
+          .attr("y", -margin.left * 0.5)
+          .text("Percent Completion (%)");
 
         // Create the dots for the scatter plot
         const dots = plotArea
@@ -111,7 +160,27 @@
           .on("mouseover", showTooltip)
           .on("mouseout", hideTooltip);
 
-        // Show/hide data points and lines based on the subgroup
+        // line to connect the dots
+        const line = d3
+          .line()
+          .x((d) => xScale(d.academicYear) + xScale.bandwidth() / 2)
+          .y((d) => yScale(d.perc));
+
+        const groupedData = d3.group(data, (d) => d.subgroup);
+        plotArea
+          .selectAll(".line")
+          .data(groupedData)
+          .enter()
+          .append("path")
+          .attr("class", "line")
+          .attr("d", (d) => line(d[1]))
+          .attr("fill", "none")
+          .attr("stroke", (d) => colorScale(d[0]))
+          .attr("stroke-width", (d) => (d[0] === "Overall" ? 8 : 2))
+          .style("opacity", 0);
+
+        // create content for slide 1 2 3
+        // for slide 1, show only Overall
         function showSubgroup(subgroup) {
           plotArea
             .selectAll(".line")
@@ -119,24 +188,22 @@
 
           dots.style("opacity", (d) => (d.subgroup === subgroup ? 1 : 0));
 
-          // Show the corresponding legend for the subgroup
           const legendData = Array.from(groupedData).filter(
             (d) => d[0] === subgroup
           );
           showLegend(legendData);
         }
 
-        // Show all data points and lines
+        // for slide 2, show all data
         function showAllData() {
           plotArea.selectAll(".line").style("opacity", 1);
 
           dots.style("opacity", 1);
 
-          // Show the legend for all subgroups
           showLegend(Array.from(groupedData));
         }
 
-        // Show three subgroups
+        // for slide 3, show only 3 data
         function showThreeData() {
           const relevantSubgroups = [
             "Overall",
@@ -153,19 +220,19 @@
             relevantSubgroups.includes(d.subgroup) ? 1 : 0
           );
 
-          // Show the legend for the three subgroups
           const legendData = Array.from(groupedData).filter((d) =>
             relevantSubgroups.includes(d[0])
           );
           showLegend(legendData);
         }
 
-        // Initial slide (Show only "Overall" data)
+        //set up initial and current slide
         showSubgroup("Overall");
 
-        // Variables to keep track of the current slide and academic years
         let currentSlide = 0;
         const slides = [
+          { subgroup: "Overall", action: showSubgroup },
+          { subgroup: "Overall", action: showSubgroup },
           { subgroup: "Overall", action: showSubgroup },
           { subgroup: "", action: showAllData },
           { subgroup: "", action: showThreeData },
@@ -176,7 +243,6 @@
           currentSlide = (currentSlide + 1) % slides.length;
           const { subgroup, action } = slides[currentSlide];
           action(subgroup);
-          // Call the annotation function for each slide
           annotateSlide(currentSlide);
         }
 
@@ -185,17 +251,16 @@
           currentSlide = (currentSlide - 1 + slides.length) % slides.length;
           const { subgroup, action } = slides[currentSlide];
           action(subgroup);
-          // Call the annotation function for each slide
           annotateSlide(currentSlide);
         }
 
-        // Attach onclick events to the buttons
+        //events
         document.getElementById("prevButton").onclick = prevSlide;
         document.getElementById("nextButton").onclick = nextSlide;
 
-        // Function to show the legend
+        // set legend
         function showLegend(legendData) {
-          legendArea.html(""); // Clear existing legend
+          legendArea.html("");
           const legendItems = legendArea
             .selectAll("div")
             .data(legendData)
@@ -215,70 +280,117 @@
           legendItems.append("span").text((d) => d[0]);
         }
 
-        // Annotation function for each slide
+        // Annotation
         function annotateSlide(slideIndex) {
           const annotationsData = [
-            // Annotations for each slide
+            // Slide 1
             [
               {
                 type: d3.annotationCalloutCircle,
                 note: {
-                  title: "Annotation 1",
-                  label: "This points to data point in Slide 1",
-                  wrap: 150,
+                  title: "In 2017, AB 705 was implemented",
+                  label:
+                    "It changed practices for placement of students into transfer-level and college-level courses in mathematics, English, and English as a Second Language with the intent of providing equitable access for disproportionately impacted students and closing equity gaps in student success.",
+                  wrap: 400,
                 },
-                x: xScale(data[0].academicYear) + xScale.bandwidth() / 2,
-                y: yScale(data[0].perc),
+                x: 305,
+                y: 360,
+                dx: 0,
+                dy: -180,
                 subject: {
                   radius: 15,
                 },
-                disable: ["connector"],
-              },
-              {
-                type: d3.annotationCalloutCircle,
-                note: {
-                  title: "Annotation 4",
-                  label: "This points to data point in Slide 1",
-                  wrap: 150,
-                },
-                x: xScale(data[4].academicYear) + xScale.bandwidth() / 2,
-                y: yScale(data[4].perc),
-                subject: {
-                  radius: 15,
-                },
-                disable: ["connector"],
               },
             ],
             [
               {
                 type: d3.annotationCalloutCircle,
                 note: {
-                  title: "Annotation 2",
-                  label: "This points to data point in Slide 2",
-                  wrap: 150,
+                  title:
+                    "In 2020, the pandemic hits and all courses were switched to an online delivery modality.",
+                  label:
+                    "Since the implementation of AB 705 in 2017, the percent completion rate for students taking transfer-level math courses continuely increases despite the pandemic.",
+                  wrap: 350,
                 },
-                x: xScale(data[1].academicYear) + xScale.bandwidth() / 2,
-                y: yScale(data[1].perc),
+                x: 545,
+                y: 255,
+                dx: -80,
+                dy: -50,
                 subject: {
                   radius: 15,
                 },
-                disable: ["connector"],
               },
             ],
             [
               {
                 type: d3.annotationCalloutCircle,
                 note: {
-                  title: "Annotation 3",
-                  label: "This points to data point in Slide 3",
+                  title: "In 2022, the percent completion decreases",
+                  label:
+                    "Starting 2022, most schools has switch most of the math courses back to face-to-face delivery modality.  It is suspected that this decrease can be a result of students getting used to taking courses online.  Despite this decrease, the overall percent completion is higher after the implementation of AB 705.",
+                  wrap: 300,
+                },
+                x: 660,
+                y: 240,
+                dx: -100,
+                dy: -30,
+                subject: {
+                  radius: 80,
+                },
+              },
+            ],
+            [
+              {
+                note: {
+                  title: "Percent Completion disaggregated by Ethnic Groups",
+                  label:
+                    "In this slide the Percent Completion is disaggregated by different Ethnic Groups.  Notices that in general, the trend for the percent completion is similar - upon implementation of AB 705, the percent completion increases.  In 2021, most ethnic groups experience a decrease in completion rate (except for students reporting two or more races), but the percent completion is still higher than the years prior to 2017.",
+                  wrap: 400,
+                },
+                x: 110,
+                y: 20,
+              },
+            ],
+            [
+              {
+                type: d3.annotationCalloutRect,
+                note: {
+                  title: "",
+                  label: "",
                   wrap: 150,
                 },
-                x: xScale(data[2].academicYear) + xScale.bandwidth() / 2,
-                y: yScale(data[2].perc),
+                x: 170,
+                y: 180,
                 subject: {
-                  radius: 15,
+                  width: -50,
+                  height: 300,
                 },
                 disable: ["connector"],
+              },
+              {
+                type: d3.annotationCalloutRect,
+                note: {
+                  title: "",
+                  label: "",
+                  wrap: 150,
+                },
+                x: 732,
+                y: 80,
+                subject: {
+                  width: -50,
+                  height: 300,
+                },
+                disable: ["connector"],
+              },
+              {
+                note: {
+                  title: "Equity Gap",
+                  label:
+                    "To take a quick look at the effectiveness of AB 705 in closing the equity gap, we will look at the gap between the Ethnic groups with the highest and lowest percent completion (Asian and Black or African American, respectfully).  In 2015, the differece in percent completion is 21.391%.  In 2022, the difference in percent completion is 23.009%.  In these terms, the equity gap did not decrease as AB 705 was intended to, but the percent completion rate increase overall.",
+                  wrap: 500,
+                },
+                x: 110,
+                y: 20,
               },
             ],
           ];
@@ -289,9 +401,10 @@
             .annotation()
             .annotations(annotationsData[slideIndex]);
 
-          svg.append("g").attr("class", "annotation-group").call(makeAnnotations);
-
-
+          svg
+            .append("g")
+            .attr("class", "annotation-group")
+            .call(makeAnnotations);
         }
 
         // Initial annotation for the first slide

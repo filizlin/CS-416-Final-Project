@@ -387,7 +387,7 @@
                   title: "Equity Gap",
                   label:
                     "To take a quick look at the effectiveness of AB 705 in closing the equity gap, we will look at the gap between the Ethnic groups with the highest and lowest percent completion (Asian and Black or African American, respectfully).  In 2015, the differece in percent completion is 21.391%.  In 2022, the difference in percent completion is 23.009%.  In these terms, the equity gap did not decrease as AB 705 was intended to, but the percent completion rate increase overall.",
-                  wrap: 500,
+                  wrap: 550,
                 },
                 x: 110,
                 y: 20,
@@ -425,11 +425,11 @@
 
       function showTooltip(event, d) {
         const tooltipContent = `
-          Subgroup: ${d.subgroup}<br>
+          Ethnicity: ${d.subgroup}<br>
           Academic Year: ${d.academicYear}<br>
-          Denom: ${d.denom}<br>
-          Value: ${d.value}<br>
-          Perc: ${d.perc}
+          Number of students in Transfer-level Math course: ${d.denom}<br>
+          Number of students who completed Transfer-level Math during their first year in community college: ${d.value}<br>
+          Percent of student who succesffully completed transfer-level math courses (%): ${d.perc}
         `;
 
         tooltip

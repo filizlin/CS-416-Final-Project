@@ -43,25 +43,61 @@
       style="
         background: lightgrey;
         color: black;
-        padding: 20px;
-        width: 100px;
+        padding: 10px;
+        width: 50px;
         font-size: 16px;
       "
-      id="prevButton"
+      id="button1"
     >
-      Previous
+      1
     </button>
     <button
       style="
         background: lightgrey;
         color: black;
-        padding: 20px;
-        width: 100px;
+        padding: 10px;
+        width: 50px;
         font-size: 16px;
       "
-      id="nextButton"
+      id="button2"
     >
-      Next
+      2
+    </button>
+    <button
+      style="
+        background: lightgrey;
+        color: black;
+        padding: 10px;
+        width: 50px;
+        font-size: 16px;
+      "
+      id="button3"
+    >
+      3
+    </button>
+    <button
+      style="
+        background: lightgrey;
+        color: black;
+        padding: 10px;
+        width: 50px;
+        font-size: 16px;
+      "
+      id="button4"
+    >
+      4
+    </button>
+    <button
+      style="
+        background: lightgrey;
+        color: black;
+        padding: 10px;
+        width: 50px;
+        font-size: 16px;
+      "
+      id="button5"
+    >
+      5
     </button>
     <div id="scatterPlot"></div>
     <div id="legend"></div>
@@ -239,24 +275,18 @@
         ];
 
         // Function to transition to the next slide
-        function nextSlide() {
-          currentSlide = (currentSlide + 1) % slides.length;
-          const { subgroup, action } = slides[currentSlide];
+        function slide(number) {
+          const { subgroup, action } = slides[number];
           action(subgroup);
-          annotateSlide(currentSlide);
-        }
-
-        // Function to transition to the previous slide
-        function prevSlide() {
-          currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-          const { subgroup, action } = slides[currentSlide];
-          action(subgroup);
-          annotateSlide(currentSlide);
+          annotateSlide(number);
         }
 
         //events
-        document.getElementById("prevButton").onclick = prevSlide;
-        document.getElementById("nextButton").onclick = nextSlide;
+        document.getElementById("button1").onclick = () => slide(0);
+        document.getElementById("button2").onclick = () => slide(1);
+        document.getElementById("button3").onclick = () => slide(2);
+        document.getElementById("button4").onclick = () => slide(3);
+        document.getElementById("button5").onclick = () => slide(4);
 
         // set legend
         function showLegend(legendData) {
@@ -301,6 +331,16 @@
                   radius: 15,
                 },
               },
+              {
+                note: {
+                  title: "Slide #1",
+                  label: "",
+                  wrap: 550,
+                },
+                x: 680,
+                y: 470,
+                color: ["black"],
+              },
             ],
             [
               {
@@ -320,6 +360,16 @@
                   radius: 15,
                 },
               },
+              {
+                note: {
+                  title: "Slide #2",
+                  label: "",
+                  wrap: 550,
+                },
+                x: 680,
+                y: 470,
+                color: ["black"],
+              },
             ],
             [
               {
@@ -338,6 +388,16 @@
                   radius: 80,
                 },
               },
+              {
+                note: {
+                  title: "Slide #3",
+                  label: "",
+                  wrap: 550,
+                },
+                x: 680,
+                y: 470,
+                color: ["black"],
+              },
             ],
             [
               {
@@ -349,6 +409,16 @@
                 },
                 x: 110,
                 y: 20,
+              },
+              {
+                note: {
+                  title: "Slide #4",
+                  label: "",
+                  wrap: 550,
+                },
+                x: 680,
+                y: 470,
+                color: ["black"],
               },
             ],
             [
@@ -391,6 +461,16 @@
                 },
                 x: 110,
                 y: 20,
+              },
+              {
+                note: {
+                  title: "Slide #5",
+                  label: "",
+                  wrap: 550,
+                },
+                x: 680,
+                y: 470,
+                color: ["black"],
               },
             ],
           ];
